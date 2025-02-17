@@ -1,0 +1,41 @@
+body {
+    font-family: "Space Grotesk", sans-serif;
+    text-align: center;
+    background-color: #1d2a35;
+    color: #dfedff;
+    max-width: 900px;
+    padding: 0 1rem;
+    margin: .8rem auto;
+    font-size: 1rem;
+
+    h1 {
+        font-size: 1.5rem;
+        color: #03c27d;
+    }
+
+    .nav {
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1721;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #03c27d;;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.python-version
+.vscode
+*__pycache__/
+*.log
+app.db
+*venv/
+.virtualenv
+.coverage
+flask_session/
+.env
