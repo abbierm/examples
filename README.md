@@ -1,2 +1,2 @@
 # examples
-Code from 7b+ blog
+Code examples from 7b+ blog
