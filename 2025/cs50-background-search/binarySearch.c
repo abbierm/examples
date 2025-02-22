@@ -3,8 +3,9 @@
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include <math.h>
 
-#define N 58
+#define N 59
 
 struct driver
 {
@@ -16,7 +17,7 @@ typedef driver;
 driver drivers[N];
 
 bool load_drivers();
-void search_drivers(int number);
+void search_drivers(int number, int left, int right);
 void print_list();
 int get_user_number();
 
@@ -29,7 +30,7 @@ int main(void)
 
     printf("Enter driver number: ");
     int x = get_user_number();
-    search_drivers(x);
+    search_drivers(x, 0, N);
     return 0;
 }
 
@@ -38,7 +39,7 @@ bool load_drivers()
     FILE *fp;
     char s[1024];
 
-    fp = fopen("f1drivers.txt", "r");
+    fp = fopen("sorted_f1drivers.txt", "r");
     int current_driver = 0;
     
     while (fgets(s, sizeof(s), fp) != NULL)
@@ -117,16 +118,31 @@ int get_user_number()
 }
 
 
-void search_drivers(int number)
+void search_drivers(int number, int left, int right)
 {
-    for (int i = 0; i < N; i++)
+    // Base case
+    if (right <= left)
     {
-        if (drivers[i].number == number)
-        {
-            printf("Driver: %s\n", drivers[i].name);
-            return;
-        }
+        printf("No drivers found with number: %d\n", number);
+        return;
     }
-    printf("No driver with number %i\n", number);
-    return;
+
+    int mid = round(floor(((left + right) / 2)));
+    // driver was found
+    if (number == drivers[mid].number)
+    {
+        printf("Driver: %s\n", drivers[mid].name);
+        return;
+    }
+
+    // number was larger than the driver number
+    else if (number > drivers[mid].number)
+    {
+        return search_drivers(number, mid, right);
+    }
+
+    else
+    {
+        return search_drivers(number, left, mid);
+    }
 }
