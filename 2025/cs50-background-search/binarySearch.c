@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include <math.h>
 
-#define N 59
+#define N 58
 
 struct driver
 {
@@ -30,7 +30,14 @@ int main(void)
 
     printf("Enter driver number: ");
     int x = get_user_number();
-    search_drivers(x, 0, N);
+
+    if (x == -1)
+    {
+        return 3;
+    }
+
+    search_drivers(x, 0, N - 1);
+
     return 0;
 }
 
@@ -120,29 +127,26 @@ int get_user_number()
 
 void search_drivers(int number, int left, int right)
 {
-    // Base case
-    if (right <= left)
+    if (right < left)
     {
         printf("No drivers found with number: %d\n", number);
         return;
     }
 
-    int mid = round(floor(((left + right) / 2)));
-    // driver was found
+    int mid = round(floor((left + right) / 2));
+
     if (number == drivers[mid].number)
     {
         printf("Driver: %s\n", drivers[mid].name);
         return;
     }
 
-    // number was larger than the driver number
-    else if (number > drivers[mid].number)
+    else if (number < drivers[mid].number)
     {
-        return search_drivers(number, mid, right);
+        search_drivers(number, left, mid - 1);
     }
-
     else
     {
-        return search_drivers(number, left, mid);
+        search_drivers(number, mid + 1, right);
     }
 }
