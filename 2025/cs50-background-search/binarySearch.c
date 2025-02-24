@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
-#include <math.h>
 
 #define N 58
 
@@ -133,7 +132,7 @@ void search_drivers(int number, int left, int right)
         return;
     }
 
-    int mid = round(floor((left + right) / 2));
+    int mid = (left + right) / 2;
 
     if (number == drivers[mid].number)
     {
