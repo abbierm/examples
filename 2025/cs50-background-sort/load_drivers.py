@@ -1,5 +1,8 @@
+# Loads drivers from f1db.db from f1db an unofficial f1db
+# https://github.com/f1db/f1db
+# Driver data accessed on 3.14.25  
+
 import sqlite3
-from cachetools import cached, LFUCache
 
 
 def get_database_connection():
@@ -14,11 +17,6 @@ def get_database_connection():
         conn.close()
 
     
-# @cached(cache=LFUCache(maxsize=15))
-# def get_country_length(country_name: str) -> int:
-#     return len(country_name)
-
-
 def query_f1_db(database_cursor):
     query = "SELECT name, nationality_country_id, date_of_birth, permanent_number, total_race_starts, total_race_wins, total_points FROM Driver"
     try:
@@ -32,14 +30,12 @@ def query_f1_db(database_cursor):
     except Exception as e:
         print(e)
 
-    
 
 def count_drivers():
     count = 0
     with open("drivers.txt", "r") as f:
         x = len(f.readlines())
         return x
-
 
 
 def main():
