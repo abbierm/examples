@@ -8,3 +8,4 @@ app.db
 .coverage
 flask_session/
 .env
+*.db
