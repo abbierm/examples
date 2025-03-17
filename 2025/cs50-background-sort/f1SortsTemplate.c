@@ -12,21 +12,83 @@ struct driver
     char birth_country[35];
     char birthday[20];
     int driver_number;
-    int starts;
-    int wins;
-    int points;
 }
 typedef driver;
 
 driver drivers[N];
 
+
 void load_drivers();
-int reads_digits(char * number);
-void print_drivers();
+int reads_digits(char *number);
+char * get_string(char *message, char *s, int size);
+void print_drivers(int q);
 
 int main(void)
 {
     load_drivers();
+
+
+    // User input for how to sort
+    char r[3];
+    char * m = "How would you like the drivers to be sorted\n1. name\n2. nationality\n3. birthday\n4. driver number\n(enter digit for response)\n";
+
+    get_string(m, r, 3);
+    
+    if (r == NULL)
+    {
+        return 1;
+    }
+
+    // rc = response choice
+    int rc = reads_digits(r);
+    if (rc <= 0 || rc > 4)
+    {
+        printf("Choice should be a digit between 1 and 4\n");
+        return 2;
+    }
+
+    // User input for direction
+    char d[3];
+    char *m2 = "Enter order\n1. Ascending\n2. Descending\n(enter either 1 or 2)\n";
+    get_string(m2, d, 3);
+    if (d == NULL)
+    {
+        return 1;
+    }
+
+    // 'direction choice'
+    int dc = reads_digits(d);
+    if (dc <= 0 || dc > 2)
+    {
+        printf("Selection should be a digit between 1 and 2\n");
+        return 2;
+    }
+
+
+    return 0;
+}
+
+char * get_string(char *message, char *s, int size)
+{
+    printf("%sEnter Response: ", message);   
+    char *p = fgets(s, size, stdin);
+    if (p == NULL)
+    {
+        printf("fgets error\n");
+        return NULL;
+    }
+
+    char *np = strchr(s, '\n');
+    if (np == NULL)
+    {
+        printf("input too long\n");
+        return NULL;
+    }
+    else
+    {
+        *np = '\0';
+    }
+    return s;
 }
 
 // Puts drivers inside of the drivers array
@@ -64,18 +126,7 @@ void load_drivers()
         {
             new.driver_number = reads_digits(delimeter);
         }
-        delimeter = strtok(NULL, ",");
-
-        // Gets the number of race starts
-        new.starts = reads_digits(delimeter);
-        delimeter = strtok(NULL, ",");
-
-        // Gets the number of race wins
-        new.wins = reads_digits(delimeter);
-        delimeter = strtok(NULL, ",\n");
-
-        // Gets the number of total career points
-        new.points = reads_digits(delimeter);
+        delimeter = strtok(NULL, "\n");
 
         drivers[current_driver] = new;
         current_driver++;
@@ -83,8 +134,7 @@ void load_drivers()
     return;
 }
 
-
-// Converts the text file's digits to integers to create the driver structs
+// Checks if digit then converts to int
 int reads_digits(char* number)
 {
     for (int i = 0; i < strlen(number); i++)
@@ -97,16 +147,14 @@ int reads_digits(char* number)
     return atoi(number);
 }
 
-void print_drivers()
+void print_drivers(int q)
 {
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < q; i++)
     {
         printf("%d. Driver Name: %s\n", i + 1, drivers[i].name);
         printf("Country: %s\n", drivers[i].birth_country);
         printf("Birthday: %s\n", drivers[i].birthday);
         printf("Number: %d\n", drivers[i].driver_number);
-        printf("Starts: %d\n", drivers[i].starts);
-        printf("Wins: %d\n", drivers[i].wins);
-        printf("Points: %d\n\n", drivers[i].points);
     }
 }
+
