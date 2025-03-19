@@ -35,7 +35,7 @@ void load_drivers();
 int reads_digits(char *number);
 char * get_string(char *message, char *s, int size);
 void print_drivers(int q);
-
+void selection_sort(p_locations add);
 
 int main(void)
 {
@@ -59,13 +59,33 @@ int main(void)
     
     p_locations add_to = additions[crit];
     
-    // add sort algo
+    selection_sort(add_to);
     print_drivers(N);
 
     return 0;
 }
 
 
+void selection_sort(p_locations add)
+{
+    for (int i = 0; i < N; i++)
+    {
+        driver current = drivers[i];
+
+        for (int j = i + 1; j < N; j++)
+        {
+            driver comp = drivers[j];
+            if (strcmp(current.name + add, comp.name + add) > 0)
+            {
+                drivers[i] = comp;
+                drivers[j] = current;
+                current = drivers[i];
+                comp = drivers[j];
+            }
+        }
+    }
+}
+    
 
 
 char * get_string(char *message, char *s, int size)
