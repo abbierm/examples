@@ -166,7 +166,6 @@ int reads_digits(char* number)
 void print_drivers(int q)
 {   
 
-
     for (int i = 0; i < q; i++)
     {
         printf("%d. Driver Name: %s\n", i + 1, drivers[i].name);
