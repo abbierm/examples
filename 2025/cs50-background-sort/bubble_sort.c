@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -60,7 +61,7 @@ int main(void)
     p_locations add_to = additions[crit];
     
     bubble_sort(add_to);
-    print_drivers(N);
+    print_drivers(200);
 
     return 0;
 }
@@ -69,20 +70,32 @@ int main(void)
 void bubble_sort(p_locations add)
 {
     // controls the loops through the entire array
+    int swaps = 0;
+    int loops = 0;
     for (int i = 0; i < N; i++)
     {   
+        bool changes = false;
         for (int j = 0; j < N - 1; j++)
         {
             
-            // swaps if driver[i] is greater than driver 2
+            // swaps if driver[j] is greater than driver[j + 1]
             if (strcmp((drivers[j].name + add), (drivers[j + 1].name + add)) > 0)
             {
+                swaps++;
+                changes = true;
                 driver tmp = drivers[j];
                 drivers[j] = drivers[j + 1];
                 drivers[j + 1] = tmp;
             }
         }
+        loops++;
+        if (changes == false)
+        {
+            break;
+        }
     }
+    printf("total 'outer loops': %d, total swaps: %d\n", loops, swaps);
+    return;
 }
     
 
