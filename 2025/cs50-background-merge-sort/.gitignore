@@ -1,0 +1,6 @@
+current/
+*venv/
+*.db
+f1Sorts
+merge_sort
+.vscode/

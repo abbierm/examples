@@ -1,0 +1,20 @@
+Carlos Sainz Jr.,spain,1994-09-01,55
+Charles Leclerc,monaco,1997-10-16,16
+Andrea Kimi Antonelli,italy,2006-08-25,12
+Gabriel Bortoleto,brazil,2004-10-14,05
+Isack Hadjar,france,2004-09-28,06
+Oscar Piastri,australia,2001-04-06,81
+Max Verstappen,netherlands,1997-09-30,01
+Liam Lawson,new-zealand,2002-02-11,30
+Lando Norris,united-kingdom,1999-11-13,04
+Lance Stroll,canada,1998-10-29,18
+Fernando Alonso,spain,1981-07-29,14
+Nico Hülkenberg,germany,1987-08-19,27
+Oliver Bearman,united-kingdom,2005-05-08,87
+Lewis Hamilton,united-kingdom,1985-01-07,44
+Alexander Albon,thailand,1996-03-23,23
+Esteban Ocon,france,1996-09-17,31
+Jack Doohan,australia,2003-01-20,07
+Pierre Gasly,france,1996-02-07,10
+George Russell,united-kingdom,1998-02-15,63
+Yuki Tsunoda,japan,2000-05-11,22
