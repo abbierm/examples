@@ -1,7 +1,4 @@
 current/
 *venv/
-*.db
-f1Sorts
 merge_sort
-simple_merge_sort
 .vscode/
