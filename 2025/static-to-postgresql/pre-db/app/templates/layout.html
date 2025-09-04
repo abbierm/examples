@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, width=device-width">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400..800&display=swap" rel="stylesheet">
+	 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+	 	<!-- In case I wanted to add extra styling to a page -->
+	 	{% block styles %}
+        {% endblock styles %}
+
+        <title>Blog Site: {% block title %}{% endblock title %}</title>
+	</head>
+	<body>
+		<header class="header">
+			<nav class="navbar">
+				<ul>
+					<li>
+						<a href="{{ url_for('main.index') }}">7b+</a>
+					</li>
+                    <li>
+                        <a href="{{ url_for('blog.all') }}">Blog</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('main.about') }}">About</a>
+                    </li>
+                </ul>
+			</nav>
+		</header>
+		<hr>
+		{% block main %}
+		{% endblock main %}
+	</body>
+</html>

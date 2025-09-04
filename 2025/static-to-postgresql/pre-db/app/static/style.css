@@ -1,0 +1,144 @@
+
+
+body {
+    color: #333;
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 700px;
+    margin: .8rem auto;
+    font-size: 1rem;
+    font-family: 'TASA Explorer';
+}
+
+h1 {
+    color: #17634b;
+}
+
+a {
+    color: #22313D;
+}
+
+
+.header {
+    max-width: 600px;
+    margin: 1rem auto;
+    padding: 0;
+    
+}
+
+.navbar {
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    margin: 0px auto;
+
+}
+
+.left-header-item {
+    padding-left: 1rem;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding-left: 0;
+    justify-content: space-around;
+}
+
+.navbar ul li {
+    margin: 0 1rem;
+}
+
+/*.navbar ul li:last-child {
+    margin: 0 .25rem;
+}
+*/
+.navbar ul li a {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar ul li a:hover {
+    color: #bb5273;
+}
+
+.index-header {
+    font-size: 2rem;
+    margin: 2rem 0rem;
+    color: #17634b;
+}
+
+.bio-box {
+    text-align: left;
+    max-width: 700px;
+    margin: auto;
+}
+
+.bio-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/****************************************** 
+
+             Blog's Archive Page
+
+*******************************************/
+.blogs-table-container {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;    
+}
+
+.archive-table {
+    border: none;
+    font-size: .875rem;
+    text-align: left;
+
+    td, th {
+        border: none;
+    }
+
+    .blog-links {
+        overflow-wrap: break-word;
+        max-width: 250px;
+    }
+
+    .blog-list-dates {
+        word-break: normal;
+    }
+    
+    .table-year-row {
+        text-align: center;
+        font-size: 1.25rem;
+    }
+}
+
+/******************************************
+
+                 Blog Posts 
+
+*******************************************/
+
+.blog-date {
+    text-align: left;
+}
+
+.blog-box {
+    display: flex;
+    text-align: left;
+    line-height: 1.5;
+    max-width: 700px;
+    display: block;
+    margin: auto;
+    padding: 5px;
+    
+    img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        padding: 10px;
+    }
+}

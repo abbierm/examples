@@ -1,0 +1,5 @@
+.python-version
+blog_venv/
+*__pycache__/
+*.log
+app.db
