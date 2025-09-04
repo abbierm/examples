@@ -1,0 +1,38 @@
+<!-- Copied directly from my site  -->
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Blog Archive
+{% endblock %}
+
+{% block main %}
+
+    <h1>Archives</h1>
+    <div class="blogs-table-container">
+        {% set year = namespace(year=posts[0].date|format_blog_time(format="%Y")) %}
+        
+        <table class="archive-table">
+            <tr class="table-year-row">
+                <th colspan="2">{{ year.year }}</th>
+            </tr>
+            {% for p in posts %}
+                {% set post_year = p.date|format_blog_time(format="%Y") %}
+                {% if year.year != post_year %}
+                    {% set year.year = post_year %}
+                        <tr class="table-year-row">
+                            <th colspan="2">{{ year.year }}</th>
+                        </tr>
+                {% endif %}
+            <tr>
+                <td class="blog-links"><a href="{{ url_for('blog.post', url=p.url ) }}">{{ p.title }}</a></td>
+                <td class="blog-list-dates">{{ p.date|format_blog_time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+</ul>
+
+
+{% endblock %}

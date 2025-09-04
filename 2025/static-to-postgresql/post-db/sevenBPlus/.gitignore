@@ -1,0 +1,12 @@
+.python-version
+blog_venv/
+*__pycache__/
+*.log
+app.db
+instance/
+
+# uncomment the .env file, I'm uploading one just
+#  to show what a .env file would look like 
+#.env
+
+pyvenv.cfg

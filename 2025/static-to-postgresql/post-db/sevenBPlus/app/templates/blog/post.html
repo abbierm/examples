@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block styles %}
+    {% if post.styles is not none %}
+        <style>
+            {{ post.styles|flatten_yaml_to_css() }}
+        </style>
+    {% else %}
+        <style> </style>
+    {% endif %}
+{% endblock styles %}
+
+
+{% block title %}
+    Blog Post: {{ post.title }}
+{% endblock title %}
+
+
+{% block main %}
+
+
+<h1>
+    {{ post.title }}
+</h1>
+<div class="blog-box">
+    <small class="blog-date">
+        {{ post.date_readable }}
+    </small>
+    {{ post }}
+</div>
+{% endblock main %}
