@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 // Candidates have name, vote count, eliminated status
 typedef struct
 {
